@@ -1,40 +1,139 @@
-*{
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
-body{
-  font-family: 'Urbanist', sans-serif;
+body {
+  font-family: "Urbanist", sans-serif;
   padding: 0 95px;
 }
-:root{
-  --main-color: #AF7EEB;
-  --second-color: #c4c4c4;
+:root {
+  --main-color: #a06cdf;
+  --inputs-color: #f0efef;
+  --background-color: #ffff;
 }
-nav{
+nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 0 5px;
   height: 100px;
 }
-nav .dark-add{
+nav h2 {
+  color: var(--main-color);
+}
+nav .dark-add {
   display: flex;
   justify-content: space-between;
   align-items: center;
   width: 15%;
 }
-nav .dark-add img{
+nav .dark-add img {
   height: 20px;
 }
-nav .dark-add button{
+nav .dark-add button {
   width: 80px;
   height: 40px;
   background-color: var(--main-color);
+  color: var(--background-color);
   border-radius: 10px;
   border: none;
+  cursor: pointer;
 }
-nav .dark-add button:hover{
+nav .dark-add button:hover {
   background-color: #ffff;
   border: 1px solid var(--main-color);
+  color: var(--main-color);
+}
+.popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.2);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.popup-inner {
+  position: relative;
+  padding: 32px;
+  width: 100%;
+  height: 70%;
+  bottom: 0;
+  max-width: 640px;
+  background-color: var(--background-color);
+  border-radius: 15px;
+}
+.popup-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5px;
+  height: 10%;
+}
+.popup-header h3 {
+  color: var(--main-color);
+}
+.popup-header button {
+  height: 20px;
+  width: 20px;
+  border: none;
+  border-radius: 5px;
+  background-color: red;
+  color: var(--background-color);
+  cursor: pointer;
+}
+.popup-header button:hover{
+  background-color: var(--background-color);
+  border: 1px solid red;
+  color: red;
+}
+.popup-inner hr {
+  margin-bottom: 30px;
+}
+.popup-inner form {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-direction: column;
+}
+.popup-inner form label {
+  margin: 30px 0 5px 0;
+  font-weight: bold;
+}
+.popup-inner form input,
+textarea {
+  background-color: var(--inputs-color);
+  border: none;
+  border-radius: 5px;
+  padding: 0 10px;
+}
+#title {
+  height: 30px;
+  width: 80%;
+}
+#desc {
+  height: 100px;
+  padding-top: 5px;
+  width: 80%;
+}
+.popup-inner form button {
+  position: absolute;
+  bottom: -7px;
+  right: 20px;
+  background-color: var(--main-color);
+  color: var(--background-color);
+  border: none;
+  border-radius: 15px;
+  width: 80px;
+  height: 30px;
+  cursor: pointer;
+}
+.popup-inner form button:hover {
+  background-color: #ffff;
+  border: 1px solid var(--main-color);
+  color: var(--main-color);
 }
