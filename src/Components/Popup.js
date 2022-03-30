@@ -1,7 +1,7 @@
 import React from "react";
 
 export default function Popup(props) {
-  const { closePopUp } = props;
+  const { closePopUp, addToDos } = props;
   return props.trigger ? (
     <div className="popup">
       <div className="popup-inner">
@@ -10,15 +10,19 @@ export default function Popup(props) {
           <button onClick={closePopUp}>X</button>
         </div>
         <hr />
-        <form>
-          <label for="title">Title :</label>
-          <input type="text" id="title" />
-          <label for="desc">Description :</label>
-          <textarea type="field" id="desc"></textarea>
-          <label for="date">Date :</label>
-          <input type="date" id="date" />
-          <button>Add</button>
-        </form>
+        <div className="form">
+          <label htmlFor="title">Title :</label>
+          <input type="text" id="title" onChange={addToDos}/>
+          <label htmlFor="desc">Description :</label>
+          <textarea type="field" id="desc" onChange={addToDos}></textarea>
+          <label htmlFor="date">Date :</label>
+          <input type="date" id="date" onChange={addToDos}/>
+          <select id="type">
+              <option>Hard</option>
+              <option>Easy</option>
+          </select>
+          <button onClick={addToDos}>Add</button>
+        </div>
       </div>
     </div>
   ) : (
