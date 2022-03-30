@@ -1,10 +1,10 @@
 const Navbar = (props) => {
-  const { openPopUp } = props;
+  const { openPopUp, numberOfToDos } = props;
   return (
     <nav>
       <h2>Manege Your Tasks</h2>
       <div className="dark-add">
-        <img src="#" alt="Dark-mode Icon" />
+        <p>You have <span>{numberOfToDos()}</span> ToDos</p>
         <button onClick={openPopUp}>Add Task</button>
       </div>
     </nav>
