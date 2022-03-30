@@ -29,6 +29,12 @@ class App extends React.Component {
       return { toDos: [...prevState.toDos, toDoData] };
     });
   };
+  deleteToDo = (id) => {
+    const toDosCards = this.state.toDos.filter((e) =>
+      e.id !== id ? true : false
+    );
+    this.setState({ toDos: toDosCards });
+  };
 
   render() {
     const { popUpDisplay, type, toDos } = this.state;
@@ -45,10 +51,12 @@ class App extends React.Component {
             })
             .map((task) => (
               <Card
+                id={task.id}
                 title={task.title}
                 desc={task.desc}
                 date={task.date}
                 type={task.type}
+                deleteToDo={this.deleteToDo}
               />
             ))}
         </div>

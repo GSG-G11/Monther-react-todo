@@ -1,7 +1,7 @@
 import React from "react";
 
 export default function Card(props) {
-  const { title, desc, date, type } = props;
+  const { id, title, desc, date, type, deleteToDo } = props;
   return (
     <div className="card">
       <h3>{title}</h3>
@@ -13,7 +13,7 @@ export default function Card(props) {
         <p>{type}</p>
       </div>
       <input className="check-card" type="checkbox" />
-      <button>X</button>
+      <button onClick={() => deleteToDo(id)}>X</button>
     </div>
   );
 }
