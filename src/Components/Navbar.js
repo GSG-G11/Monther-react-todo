@@ -1,5 +1,4 @@
 const Navbar = (props) => {
-    console.log("this is props" + props);
     const { openPopUp } = props;
     return(
         <nav>
