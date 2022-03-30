@@ -12,11 +12,11 @@ export default function Popup(props) {
         <hr />
         <form className="form" onSubmit={addToDos}>
           <label htmlFor="title">Title :</label>
-          <input type="text" id="title" />
+          <input type="text" id="title" required/>
           <label htmlFor="desc">Description :</label>
-          <textarea type="field" id="desc"></textarea>
+          <textarea type="field" id="desc" required></textarea>
           <label htmlFor="date">Date :</label>
-          <input type="date" id="date" />
+          <input type="date" id="date" required/>
           <select id="type">
             <option>Hard</option>
             <option>Easy</option>
