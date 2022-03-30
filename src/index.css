@@ -26,10 +26,13 @@ nav .dark-add {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 15%;
+  width: 20%;
 }
-nav .dark-add img {
-  height: 20px;
+nav .dark-add p {
+  font-weight: bold;
+}
+nav .dark-add span{
+  color: var(--main-color);
 }
 nav .dark-add button {
   width: 80px;

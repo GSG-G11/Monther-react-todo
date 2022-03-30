@@ -12,6 +12,11 @@ class App extends React.Component {
     toDos: [],
   };
 
+  numberOfToDos = () => {
+    const numOfToDos = this.state.toDos.length;
+    if(numOfToDos) return numOfToDos 
+    return '0'
+  };
   handleOpenPopUp = () => this.setState({ popUpDisplay: true });
   handleClosePopUp = () => this.setState({ popUpDisplay: false });
   changeType = (e) => this.setState({ type: e.target.value });
@@ -40,7 +45,10 @@ class App extends React.Component {
     const { popUpDisplay, type, toDos } = this.state;
     return (
       <>
-        <Navbar openPopUp={this.handleOpenPopUp} />
+        <Navbar
+          openPopUp={this.handleOpenPopUp}
+          numberOfToDos={this.numberOfToDos}
+        />
         <hr />
         <Filter changeType={this.changeType} />
         <div className="cards">
