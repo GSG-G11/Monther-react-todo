@@ -1,6 +1,6 @@
 # ToDoApp-Project
 - [Design Link](https://www.figma.com/file/9Usznp0S3u2lMD4ISqvhNF/ToDo?node-id=0%3A1)
-- [Live Link](https://glittering-liger-b86e6c.netlify.app/)
+- [Live Link](https://vermillion-dasik-7f4a7b.netlify.app/)
 ## Project description
 ToDo list is a simple website to save Your daily tasks in order not to miss anything.
 
