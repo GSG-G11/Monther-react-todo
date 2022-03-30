@@ -2,30 +2,61 @@ import React from "react";
 import "./index";
 import Navbar from "./Components/Navbar";
 import Popup from "./Components/Popup";
+import Filter from "./Components/Filter";
+import Card from "./Components/Card";
 
 class App extends React.Component {
   state = {
     popUpDisplay: false,
-    toDos : [],
+    type: "All",
+    toDos: [],
   };
 
   handleOpenPopUp = () => this.setState({ popUpDisplay: true });
   handleClosePopUp = () => this.setState({ popUpDisplay: false });
+  changeType = (e) => this.setState({ type: e.target.value });
   addToDos = (e) => {
-    //  const toDoData = { title: 'M', desc: 'mmmmmmmmmmmmmm', date: '15/3/2020' };
-    const { value } = e.target;
-    const { toDos } = this.state;
-    toDos.push(value);
-    console.log(this.state);
-  }
+    e.preventDefault();
+    const { title, desc, date, type } = e.target;
+    const toDoData = {
+      id: Date.now(),
+      title: title.value,
+      desc: desc.value,
+      date: date.value,
+      type: type.value,
+    };
+    this.setState((prevState) => {
+      return { toDos: [...prevState.toDos, toDoData] };
+    });
+  };
 
   render() {
-    const { popUpDisplay } = this.state;
+    const { popUpDisplay, type, toDos } = this.state;
     return (
       <>
         <Navbar openPopUp={this.handleOpenPopUp} />
         <hr />
-        <Popup trigger={popUpDisplay} closePopUp={this.handleClosePopUp} addToDos={this.addToDos}/>
+        <Filter changeType={this.changeType} />
+        <div className="cards">
+          {toDos
+            .filter((task) => {
+              if (type === "All") return true;
+              return task.type === type;
+            })
+            .map((task) => (
+              <Card
+                title={task.title}
+                desc={task.desc}
+                date={task.date}
+                type={task.type}
+              />
+            ))}
+        </div>
+        <Popup
+          trigger={popUpDisplay}
+          closePopUp={this.handleClosePopUp}
+          addToDos={this.addToDos}
+        />
       </>
     );
   }

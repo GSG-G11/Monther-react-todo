@@ -10,19 +10,19 @@ export default function Popup(props) {
           <button onClick={closePopUp}>X</button>
         </div>
         <hr />
-        <div className="form">
+        <form className="form" onSubmit={addToDos}>
           <label htmlFor="title">Title :</label>
-          <input type="text" id="title" onChange={addToDos}/>
+          <input type="text" id="title" />
           <label htmlFor="desc">Description :</label>
-          <textarea type="field" id="desc" onChange={addToDos}></textarea>
+          <textarea type="field" id="desc"></textarea>
           <label htmlFor="date">Date :</label>
-          <input type="date" id="date" onChange={addToDos}/>
+          <input type="date" id="date" />
           <select id="type">
-              <option>Hard</option>
-              <option>Easy</option>
+            <option>Hard</option>
+            <option>Easy</option>
           </select>
-          <button onClick={addToDos}>Add</button>
-        </div>
+          <button>Add</button>
+        </form>
       </div>
     </div>
   ) : (
